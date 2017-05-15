@@ -14,12 +14,14 @@
             </div>
         </div>
 
+        <?php if (Yii::$app->user->identity->admin_type=="Admin") { ?>
+
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     //['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
 
                     [
                         'label' => 'Admin Master',
@@ -27,12 +29,41 @@
                         'url' => '#',
                         'items' => [                               
                             ['label' => 'Manage Admins/Subadmins', 'icon' => 'fa fa-graduation-cap', 'url' => ['/adminsubadmin/adminsubadmin'],],
-                           
-                            
                         ],
                     ],
 
-                    //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Manage Countries', 'icon' => 'fa fa-circle', 'url' => ['/countries/countries']],
+                    ['label' => 'Manage Style', 'icon' => 'fa fa-circle', 'url' => ['/style/style']],
+                    ['label' => 'Manage Occasion', 'icon' => 'fa fa-circle', 'url' => ['/occasion/occasion']],
+                    ['label' => 'Manage Brand', 'icon' => 'fa fa-circle', 'url' => ['/brand/brand']],
+                    ['label' => 'Manage Size', 'icon' => 'fa fa-circle', 'url' => ['/size/size']],
+                    ['label' => 'Manage Category', 'icon' => 'fa fa-circle', 'url' => ['/category/category']],
+                    ['label' => 'Manage Subcategory', 'icon' => 'fa fa-circle', 'url' => ['/subcategory/subcategory']],
+                    ['label' => 'Manage Banner', 'icon' => 'fa fa-circle', 'url' => ['/banner/banner']],
+                    ['label' => 'Manage CMS Pages', 'icon' => 'fa fa-circle', 'url' => ['/cms/cms']],
+                    ['label' => 'Manage New Fasion', 'icon' => 'fa fa-circle', 'url' => ['/newsfashion/newsfashion']],
+                    ['label' => 'Manage Users', 'icon' => 'fa fa-circle', 'url' => ['/user/user']],
+                    
+
+
+                    [
+                        'label' => 'Settings',
+                        'icon' => 'fa fa-cogs',
+                        'url' => '#',
+                        'items' => [
+                                [
+                                   'label' => 'Access Role Setting',
+                                   'icon' => 'fa fa-cog',
+                                   'url' => '#',
+                                   'items' => [ 
+                                        ['label' => 'Manage Roles','icon' => 'fa fa-circle','url' => ['/rbac/role'],],
+                                        ['label' => 'Manage Permissions','icon' => 'fa fa-circle','url' => ['/rbac/permission'],],
+                                        ['label' => 'Assign Access','icon' => 'fa fa-circle','url' => ['/rbac/assignment'],],
+                                   ],
+                                ],
+                            ],
+                    ],
+
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Same tools',
@@ -63,6 +94,8 @@
                 ],
             ]
         ) ?>
+    
+    <?php } ?>
 
     </section>
 
