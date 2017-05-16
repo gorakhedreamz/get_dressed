@@ -43,11 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'created_by',
                 'value'=> ($model->created_by)?$model->usercreatedby->first_name . " " . $model->usercreatedby->last_name:'',
             ],
-            'created_date',
             [
                 'attribute'=>'updated_by',
                 'value'=> ($model->updated_by)?$model->userupdatedby->first_name . " " . $model->userupdatedby->last_name:'Not updated yet',
             ],
+            'created_date',
             'updated_date',
         ],
     ]) ?>

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model backend\modules\adminsubadmin\models\Admin */
@@ -16,11 +17,26 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true,'id'=>'pwdhash']) ?>
+    
+    <?= $form->field($model, 'dob')->widget(DatePicker::classname(), [
+            'options' => ['placeholder' => 'Date Of Birth'],
+            'pluginOptions' => [
+                 'autoclose' => true,
+                 'format' => 'yyyy-mm-dd', 
+                 'endDate'=>date('Y-m-d'),
+            ]
+        ]);
+    ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'country_id')->dropDownList($country_list,['prompt' => 'Select Country']) ?>
+
+    <?= $form->field($model, 'contact_number')->textInput(['maxlength' => 6]) ?>
 
     <?= $form->field($model, 'admin_type')->dropDownList([ 'Admin' => 'Admin', 'Subadmin' => 'Subadmin', ], ['prompt' => 'Select Type']) ?>
 

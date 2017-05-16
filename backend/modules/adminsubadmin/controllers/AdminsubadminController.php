@@ -9,6 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use Yii\helpers\ArrayHelper;
+use backend\modules\countries\models\Countries;
+
 /**
  * AdminsubadminController implements the CRUD actions for Admin model.
  */
@@ -78,6 +81,9 @@ class AdminsubadminController extends Controller
         $model = new Admin();
         $model->scenario = 'create_admin'; 
 
+        $country_list = Countries::find()->where(['is_activated'=> 1 , 'is_deleted'=> 0])->all();
+        $country_list = ArrayHelper::map($country_list,'id','country_name');
+
         if ($model->load(Yii::$app->request->post())) 
         {
             $data=Yii::$app->request->post();
@@ -98,6 +104,7 @@ class AdminsubadminController extends Controller
             {
                 return $this->render('create', [
                     'model' => $model,
+                    'country_list'=>$country_list,
                 ]);
             }
         } 
@@ -105,6 +112,7 @@ class AdminsubadminController extends Controller
         {
             return $this->render('create', [
                 'model' => $model,
+                'country_list'=>$country_list,
             ]);
         }
     }
@@ -125,6 +133,9 @@ class AdminsubadminController extends Controller
         $model->scenario = 'update_admin';
 
         $old_password = $model->password_hash;
+
+        $country_list = Countries::find()->where(['is_activated'=> 1 , 'is_deleted'=> 0])->all();
+        $country_list = ArrayHelper::map($country_list,'id','country_name');
 
         if ($model->load(Yii::$app->request->post())) 
         {
@@ -152,6 +163,7 @@ class AdminsubadminController extends Controller
             {
                 return $this->render('update', [
                     'model' => $model,
+                    'country_list'=>$country_list,
                 ]);
             }
         } 
@@ -159,6 +171,7 @@ class AdminsubadminController extends Controller
         {
             return $this->render('update', [
                 'model' => $model,
+                'country_list'=>$country_list,
             ]);
         }
     }
@@ -174,6 +187,8 @@ class AdminsubadminController extends Controller
        
         $old_password = $model->password_hash;
 
+        $country_list = Countries::find()->where(['is_activated'=> 1 , 'is_deleted'=> 0])->all();
+        $country_list = ArrayHelper::map($country_list,'id','country_name');
 
         if ($model->load(Yii::$app->request->post())) 
         {   
@@ -198,12 +213,12 @@ class AdminsubadminController extends Controller
             } 
             else 
             {
-                return $this->render('updateprofile', ['model' => $model,]);
+                return $this->render('updateprofile', ['model' => $model,'country_list'=>$country_list,]);
             }
         } 
         else 
         {
-            return $this->render('updateprofile', ['model' => $model]);
+            return $this->render('updateprofile', ['model' => $model,'country_list'=>$country_list,]);
         }
     }
 

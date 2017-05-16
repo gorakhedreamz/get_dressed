@@ -21,7 +21,86 @@ return [
         'adminsubadmin' => [
             'class' => 'backend\modules\adminsubadmin\adminsubadmin',
         ],
+
+        'banner' => [
+            'class' => 'backend\modules\banner\banner',
+        ],
+
+        'brand' => [
+            'class' => 'backend\modules\brand\brand',
+        ],
+
+        'category' => [
+            'class' => 'backend\modules\category\category',
+        ],
+
+        'newsfashion' => [
+            'class' => 'backend\modules\newsfashion\newsfashion',
+        ],
+
+        'occasion' => [
+            'class' => 'backend\modules\occasion\occasion',
+        ],
+
+        'size' => [
+            'class' => 'backend\modules\size\size',
+        ],
+
+        'style' => [    
+            'class' => 'backend\modules\style\style',
+        ],
+
+        'subcategory' => [
+            'class' => 'backend\modules\subcategory\subcategory',
+        ],
+
+        'countries' => [
+            'class' => 'backend\modules\countries\countries',
+        ],
+
+        'user' => [
+            'class' => 'backend\modules\user\user',
+        ],
+
+        'userstyles' => [
+            'class' => 'backend\modules\userstyles\userstyles',
+        ],
         
+        'cms' => [
+            'class' => 'backend\modules\cms\cms',
+        ],
+        
+        'faq' => [
+            'class' => 'backend\modules\faq\faq',
+        ],
+
+        'colors' => [
+            'class' => 'backend\modules\colors\colors',
+        ],
+
+        'products' => [
+            'class' => 'backend\modules\products\products',
+        ],
+
+        'productimages' => [
+            'class' => 'backend\modules\productimages\productimages',
+        ],
+
+        'productcolors' => [
+            'class' => 'backend\modules\productcolors\productcolors',
+        ],
+
+        'productoccasions' => [
+            'class' => 'backend\modules\productoccasions\productoccasions',
+        ],
+
+        'productsizes' => [
+            'class' => 'backend\modules\productsizes\productsizes',
+        ],
+
+        'productstyles' => [
+            'class' => 'backend\modules\productstyles\productstyles',
+        ],
     ],
 
 
