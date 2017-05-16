@@ -73,4 +73,9 @@ class Brand extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Admin::className(), ['id' => 'updated_by']);
     }
+
+    public static function getBrandCount()
+    {
+        return Brand::find()->where(['is_deleted' => 0])->count();
+    }
 }

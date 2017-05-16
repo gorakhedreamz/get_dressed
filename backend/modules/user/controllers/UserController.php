@@ -103,6 +103,7 @@ class UserController extends Controller
             $model->created_date = date("Y-m-d H:i:s");
             $model->generateAuthKey();
 
+            $model->age = date_diff(date_create($data['User']['dob']), date_create('today'))->y;
 
             if ($model->save()) 
             {
@@ -187,6 +188,8 @@ class UserController extends Controller
 
             $model->updated_by = Yii::$app->user->identity->id;
             $model->updated_date = date("Y-m-d H:i:s");
+
+            $model->age = date_diff(date_create($data['User']['dob']), date_create('today'))->y;
 
             if ($model->save()) 
             {

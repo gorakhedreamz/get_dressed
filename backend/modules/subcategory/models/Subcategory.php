@@ -80,4 +80,9 @@ class Subcategory extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Admin::className(), ['id' => 'updated_by']);
     }
+
+    public static function getSubCatCount()
+    {
+        return Subcategory::find()->where(['is_deleted' => 0])->count();
+    }
 }

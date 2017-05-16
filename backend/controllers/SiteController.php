@@ -66,7 +66,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $tot_categories =  \backend\modules\category\models\Category::getCatCount();
+        $tot_sub_categories =  \backend\modules\subcategory\models\Subcategory::getSubCatCount();
+        $tot_brands =  \backend\modules\brand\models\Brand::getBrandCount();
+        $tot_products =  \backend\modules\products\models\Product::getProductCount();
+        $tot_users =  \backend\modules\user\models\User::getUserCount();
+
+        return $this->render('index',['tot_categories' => $tot_categories, 'tot_sub_categories' => $tot_sub_categories, 'tot_brands' => $tot_brands, 'tot_products' => $tot_products, 'tot_users' => $tot_users ]);
     }
 
     /**

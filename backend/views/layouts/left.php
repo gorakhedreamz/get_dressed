@@ -37,6 +37,7 @@
                     ['label' => 'Manage Occasion', 'icon' => 'fa fa-circle', 'url' => ['/occasion/occasion']],
                     ['label' => 'Manage Brand', 'icon' => 'fa fa-circle', 'url' => ['/brand/brand']],
                     ['label' => 'Manage Size', 'icon' => 'fa fa-circle', 'url' => ['/size/size']],
+                    ['label' => 'Manage Colors', 'icon' => 'fa fa-circle', 'url' => ['/colors/colors']],
                     ['label' => 'Manage Category', 'icon' => 'fa fa-circle', 'url' => ['/category/category']],
                     ['label' => 'Manage Subcategory', 'icon' => 'fa fa-circle', 'url' => ['/subcategory/subcategory']],
                     ['label' => 'Manage Banner', 'icon' => 'fa fa-circle', 'url' => ['/banner/banner']],

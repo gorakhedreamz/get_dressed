@@ -72,4 +72,9 @@ class Category extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Admin::className(), ['id' => 'updated_by']);
     }
+
+    public static function getCatCount()
+    {
+        return Category::find()->where(['is_deleted' => 0])->count();
+    }
 }

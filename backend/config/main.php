@@ -73,6 +73,34 @@ return [
         'faq' => [
             'class' => 'backend\modules\faq\faq',
         ],
+
+        'colors' => [
+            'class' => 'backend\modules\colors\colors',
+        ],
+
+        'products' => [
+            'class' => 'backend\modules\products\products',
+        ],
+
+        'productimages' => [
+            'class' => 'backend\modules\productimages\productimages',
+        ],
+
+        'productcolors' => [
+            'class' => 'backend\modules\productcolors\productcolors',
+        ],
+
+        'productoccasions' => [
+            'class' => 'backend\modules\productoccasions\productoccasions',
+        ],
+
+        'productsizes' => [
+            'class' => 'backend\modules\productsizes\productsizes',
+        ],
+
+        'productstyles' => [
+            'class' => 'backend\modules\productstyles\productstyles',
+        ],
     ],
 
 

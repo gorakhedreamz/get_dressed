@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 use dosamigos\multiselect\MultiSelect;
 
 /* @var $this yii\web\View */
@@ -23,32 +24,36 @@ use dosamigos\multiselect\MultiSelect;
 
     <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true,'id'=>'pwdhsh']) ?>
 
-    <?= $form->field($model, 'dob')->textInput() ?>
+    <?= $form->field($model, 'dob')->widget(DatePicker::classname(), [
+            'options' => ['placeholder' => 'Date Of Birth'],
+            'pluginOptions' => [
+                 'autoclose' => true,
+                 'format' => 'yyyy-mm-dd', 
+                 'endDate'=>date('Y-m-d'),
+            ]
+        ]);
+    ?>
 
     <?= $form->field($model, 'country_id')->dropDownList($country_list,['prompt' => 'Select Country']) ?>
 
-    <?php //$form->field($model, 'style')->dropDownList($style_list,['multiple' => 'multiple'])->label(Yii::t('app','Service Style'));?>
+    <label>
+        <?= $model->getAttributeLabel('style');?>
+    </label>
 
-    <div class="form-group">
-    <label for="" class="control-label">Style</label><br>
-         <?php 
-            
-            echo MultiSelect::widget([ 
-                "options" => ['multiple'=>"multiple",'placeholder' => 'Style'], // for the actual multiselect
-                'id' => "user-style",            
-                'data' => $style_list, // data as array
-                'value' => $model->style, // if preselected
-                'name' => 'User[style]', // name for the form
+    <?= $form->field($model, 'style')->widget(MultiSelect::classname(), [
+                "options" => ['multiple'=>"multiple"],
+                //'id' => "user-style",            
+                'data' => $style_list,
+                'value' => $model->style,
+                //'name' => 'User[style]',
                 'model' => $model,
                 "clientOptions" => 
                     [
                         "includeSelectAllOption" => true,   
                         "enableFiltering" => true
                 ],
-            ]);             
-     
-        ?>
-    </div>
+            ])->label(false);
+    ?>
 
     <?= $form->field($model, 'status')->dropDownList([ '10' => 'Active', '0' => 'InActive', ], ['prompt' => 'Select Status']) ?>
    

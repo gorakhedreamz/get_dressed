@@ -38,6 +38,7 @@ class User extends \yii\db\ActiveRecord
      */
 
     public $style;
+    
     public static function tableName()
     {
         return 'user';
@@ -120,4 +121,8 @@ class User extends \yii\db\ActiveRecord
         return $this->hasOne(Admin::className(), ['id' => 'updated_by']);
     }
 
+    public static function getUserCount()
+    {
+        return User::find()->where(['is_deleted' => 0])->count();
+    }
 }
